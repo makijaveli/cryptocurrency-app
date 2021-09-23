@@ -11,7 +11,7 @@ const {Title} = Typography;
 
 const Homepage = () => {
 
-    const {data, isFetching} = useGetCryptosQuery();
+    const {data, isFetching} = useGetCryptosQuery(10);
     //  (?.) enables you to read the value of a property located deep within a chain of connected objects without having to check that each reference in the chain is valid.
     const globalStats = data?.data?.stats;
     if (isFetching) return 'Loading...'
@@ -34,7 +34,7 @@ const Homepage = () => {
                 <Title level={2} className="home-title">Top 10 Cryptocurrencies in the world</Title>
                 <Title level={3} className="show-more"><Link to="/cryptocurrencies">Show more</Link></Title>
             </div>
-            <Cryptocurrencies/>
+            <Cryptocurrencies simplified={true}/>
             <div className="home-heading-container">
                 <Title level={2} className="home-title">Latest Crypto news</Title>
                 <Title level={3} className="show-more"><Link to="/news">Show more</Link></Title>
